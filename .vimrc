@@ -293,4 +293,8 @@ set directory=\Users\z000907\Documents\unswp~files
 "---------------------------------------------------------------------------
 " スペース+.でvimrcが開く"
 nnoremap <Space>. :<C-u>tabedit \cygwin64\home\z000907\dotfiles\.vimrc<CR>
+"---------------------------------------------------------------------------
+" スペース+,でgvimrcが開く"
+nnoremap <Space>, :<C-u>tabedit \cygwin64\home\z000907\dotfiles\.gvimrc<CR>
+"---------------------------------------------------------------------------
 " Copyright (C) 2009-2016 KaoriYa/MURAOKA Taro
