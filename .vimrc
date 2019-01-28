@@ -5,7 +5,7 @@ scriptencoding utf-8
 " An example for a Japanese version vimrc file.
 " 日本語版のデフォルト設定ファイル(vimrc) - Vim 7.4
 "
-" Last Change: 21-Dec-2018.
+" Last Change: 28-Jan-2019.
 " Maintainer:  MURAOKA Taro <koron.kaoriya@gmail.com>
 "
 " 解説:
@@ -290,5 +290,7 @@ endif
 set undodir=\Users\z000907\Documents\unswp~files
 set backupdir=\Users\z000907\Documents\unswp~files
 set directory=\Users\z000907\Documents\unswp~files
-
+"---------------------------------------------------------------------------
+" スペース+.でvimrcが開く"
+nnoremap <Space>. :<C-u>tabedit \cygwin64\home\z000907\dotfiles\.vimrc<CR>
 " Copyright (C) 2009-2016 KaoriYa/MURAOKA Taro
