@@ -5,7 +5,7 @@ scriptencoding utf-8
 " An example for a Japanese version vimrc file.
 " 日本語版のデフォルト設定ファイル(vimrc) - Vim 7.4
 "
-" Last Change: 28-Jan-2019.
+" Last Change: 29-Jan-2019.
 " Maintainer:  MURAOKA Taro <koron.kaoriya@gmail.com>
 "
 " 解説:
@@ -174,11 +174,38 @@ set title
 "colorscheme evening " (Windows用gvim使用時はgvimrcを編集すること)
 
 "---------------------------------------------------------------------------
+" 画面分割に関する設定:
+
+" sをマッピング
+nnoremap s <Nop>
+" 下に移動
+nnoremap sj <C-w>j
+" 上に移動
+nnoremap sk <C-w>k
+" 右に移動
+nnoremap sl <C-w>l
+" 左に移動
+nnoremap sh <C-w>h
+" 下に今のウィンドウを移動
+nnoremap sJ <C-w>J
+" 上に今のウィンドウを移動
+nnoremap sK <C-w>K
+" 右に今のウィンドウを移動
+nnoremap sL <C-w>L
+" 左に今のウィンドウを移動
+nnoremap sH <C-w>H
+" 水平分割
+nnoremap ss :<C-u>sp<CR>
+" 垂直分割
+nnoremap sv :<C-u>vs<CR>
+" ウィンドウを閉じる
+nnoremap sq :<C-u>q<CR>
+
+"---------------------------------------------------------------------------
 " ファイル操作に関する設定:
 "
 " バックアップファイルを作成しない (次行の先頭の " を削除すれば有効になる)
 "set nobackup
-
 
 "---------------------------------------------------------------------------
 " ファイル名に大文字小文字の区別がないシステム用の設定:
