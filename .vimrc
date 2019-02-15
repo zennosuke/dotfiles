@@ -1,11 +1,10 @@
-scriptencoding utf-8
 :set t_Co=256
 " vim:set ts=8 sts=2 sw=2 tw=0: (この行に関しては:help modelineを参照)
 "
 " An example for a Japanese version vimrc file.
 " 日本語版のデフォルト設定ファイル(vimrc) - Vim 7.4
 "
-" Last Change: 29-Jan-2019.
+" Last Change: 14-Feb-2019.
 " Maintainer:  MURAOKA Taro <koron.kaoriya@gmail.com>
 "
 " 解説:
@@ -93,8 +92,8 @@ if has('keymap')
   "set iminsert=0 imsearch=0
 endif
 " 非GUI日本語コンソールを使っている場合の設定
-if !has('gui_running') && &encoding != 'cp932' && &term == 'win32'
-  set termencoding=cp932
+if !has('gui_running') && &encoding != 'utf-8' && &term == 'win32'
+  set termencoding=utf-8
 endif
 
 "---------------------------------------------------------------------------
@@ -294,15 +293,19 @@ if dein#load_state(s:dein_dir)
   let g:rc_dir    = expand('~/.vim/rc')      "ここも .vim → vimfiles に変えた
   let s:toml      = g:rc_dir . '/dein.toml'
   "let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+
   " TOML を読み込み、キャッシュしておく
   call dein#load_toml(s:toml,      {'lazy': 0})
   "call dein#load_toml(s:lazy_toml, {'lazy': 1})
   "
   " nerdtree-master：ツリー構造のプラグイン-------------
-  call dein#add('Shougo/nerdtree-master')
+  "call dein#add('Shougo/nerdtree-master')
 
   " インデントが可視化するプラグイン-------------
   "call dein#add('Shougo/vim-indent-guides-master')
+
+  " unite.vimプラグイン-------------
+  "call dein#add('Shougo/unite.vim')
 
   " 設定終了
   call dein#end()
@@ -324,4 +327,25 @@ nnoremap <Space>. :<C-u>tabedit \cygwin64\home\z000907\dotfiles\.vimrc<CR>
 " スペース+,でgvimrcが開く"
 nnoremap <Space>, :<C-u>tabedit \cygwin64\home\z000907\dotfiles\.gvimrc<CR>
 "---------------------------------------------------------------------------
+" スペース+dでdein.tomlが開く"
+nnoremap <Space>d :<C-u>tabedit \cygwin64\home\z000907\dotfiles\dein.toml<CR>
+"---------------------------------------------------------------------------
+" 文字コード設定
+set fileformat=unix
+set encoding=utf-8
+scriptencoding utf-8
+set fileencoding=utf-8
+"---------------------------------------------------------------------------
+" mdファイルをmodula2ファイルだと認識しないよう設定
+autocmd BufRead,BufNewFile *.mkd  set filetype=markdown
+autocmd BufRead,BufNewFile *.md  set filetype=markdown
+"---------------------------------------------------------------------------
+" Ctrl + p でmarkdownをブラウザでプレビュー
+nnoremap <silent> <C-p> :PrevimOpen<CR>
+"---------------------------------------------------------------------------
+" 起動時に折りたたまないようにする
+let g:vim_markdown_folding_disabled=1
+" リアルタイムでブラウザのプレビューが更新される
+let g:previm_enable_realtime = 1
+
 " Copyright (C) 2009-2016 KaoriYa/MURAOKA Taro
