@@ -18,6 +18,7 @@ set nolist                           " タブや改行を表示 (list:表示)
 set wrap                             " 長い行を折り返して表示 (nowrap:折り返さない)
 set laststatus=2                     " 常にステータス行を表示 (詳細は:he laststatus)
 set nobackup                         " バックアップファイルを作成しない (次行の先頭の " を削除すれば有効になる)
+set noswapfile                       "swpファイル出力無効
 autocmd BufWritePre * :%s/\s\+$//ge  " 行末の無駄なスペース削除
 "---------------------------------------------------------------------------
 " 表示 Apperance
