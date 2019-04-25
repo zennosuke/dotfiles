@@ -2,7 +2,7 @@
 " 基本設定 Basics
 "---------------------------------------------------------------------------
 set autoindent                       " 改行時に半角スペース8文字を自動挿入する。
-set clipboard=unnamed,autoselect     " vimでCtrl-VとCtrl-Cを使う
+set clipboard+=unnamed               " macvimでCtrl-VとCtrl-Cを使う
 set tabstop=2                        " 画面上でtabが占める幅
 set shiftwidth=2                     " 自動インデントでずれる幅
 set softtabstop=0                    " softtabstopはTabキー押し下げ時の挿入される空白の量，0の場合はtabstopと同じ，BSにも影響する
