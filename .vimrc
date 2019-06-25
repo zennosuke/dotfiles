@@ -182,3 +182,34 @@ endfunction
 function! _(str)
     return s:move_cursor_pos_mapping(a:str, "\<Left>")
 endfunction
+
+
+"-------------------------------------------------------------------------------
+" プラグイン Plugin
+"-------------------------------------------------------------------------------
+call plug#begin('~/.vim/plugged')
+
+" previm：マークダウンプレビューツール
+Plug 'https://github.com/previm/previm.git'
+" open-browser：ブラウザでURLの内容を閲覧できるツール"
+Plug 'tyru/open-browser.vim'
+
+call plug#end()
+
+
+"-------------------------------------------------------------------------------
+" previm
+"-------------------------------------------------------------------------------
+let g:previm_open_cmd = ''
+nnoremap [previm] <Nop>
+nmap <Space>p [previm]
+nnoremap <silent> [previm]o :<C-u>PrevimOpen<CR>
+nnoremap <silent> [previm]r :call previm#refresh()<CR>
+
+
+"-------------------------------------------------------------------------------
+" open-browser
+"-------------------------------------------------------------------------------
+let g:netrw_nogx = 1
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
