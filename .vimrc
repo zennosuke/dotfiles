@@ -193,7 +193,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/previm/previm.git'
 " open-browser：ブラウザでURLの内容を閲覧できるツール"
 Plug 'tyru/open-browser.vim'
-
+" NERDtree：ディレクトリツリーをvim画面上で表示するツール"
+Plug 'scrooloose/nerdtree'
 call plug#end()
 
 
@@ -213,3 +214,9 @@ nnoremap <silent> [previm]r :call previm#refresh()<CR>
 let g:netrw_nogx = 1
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
+
+
+"-------------------------------------------------------------------------------
+" NERDTree
+"-------------------------------------------------------------------------------
+map <C-e> :NERDTreeToggle<CR>
