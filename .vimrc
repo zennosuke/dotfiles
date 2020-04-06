@@ -185,6 +185,18 @@ endfunction
 
 
 "-------------------------------------------------------------------------------
+" テンプレート templates
+"-------------------------------------------------------------------------------
+" 特定のファイル名のファイルを生成した際に、テンプレートを自動で読み込む
+augroup load_templates
+    autocmd!
+    let s:load_templates_dir='~/github/dotfiles/templates'
+    let s:load_templates_command="0read ".s:load_templates_dir
+    autocmd BufNewFile *_memo.md            execute s:load_templates_command."/template_meetingmemo.md"
+augroup END
+
+
+"-------------------------------------------------------------------------------
 " プラグイン Plugin
 "-------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
@@ -202,6 +214,7 @@ call plug#end()
 " previm
 "-------------------------------------------------------------------------------
 let g:previm_open_cmd = ''
+let g:previm_show_header = 0
 nnoremap [previm] <Nop>
 nmap <Space>p [previm]
 nnoremap <silent> [previm]o :<C-u>PrevimOpen<CR>
