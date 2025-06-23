@@ -132,6 +132,7 @@ inoremap [ []<Left>
 inoremap ( ()<Left>
 inoremap " ""<Left>
 inoremap ' ''<Left>
+inoremap ` ``<Left>
 " 検索時にファイルの最後まで行ったら最初に戻る (nowrapscan:戻らない)
 set wrapscan
 " 既に対応する引用符が存在するときは保管しないようする
