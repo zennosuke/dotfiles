@@ -1,0 +1,36 @@
+Host 10.224.157.158
+  HostName 10.224.157.158
+  User zenei-esaki
+
+Host 10.224.157.158
+  HostName 10.224.157.158
+  User zenei-esaki
+
+Host 10.224.157.137
+  HostName 10.224.157.137
+  User zenei-esaki
+
+Host 10.224.157.150
+  HostName 10.224.157.150
+  User zenei-esaki
+
+Host 10.224.157.50
+  HostName 10.224.157.50
+  User zenei-esaki
+
+Host 10.224.157.159
+  HostName 10.224.157.159
+  User zenei-esaki
+
+Host github.dev github.dev.cybozu.co.jp
+  HostName github.dev.cybozu.co.jp
+  IdentityFile ~/.ssh/id_rsa
+  User git
+
+Host 10.224.157.41
+  HostName 10.224.157.41
+  User zenei
+
+Host 10.224.157.154
+  HostName 10.224.157.154
+  User zenei-esaki
