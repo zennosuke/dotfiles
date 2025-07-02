@@ -1,0 +1,30 @@
+# NOTE: 本スクリプトは ~/.config/direnv/ 配下に配置する
+
+use_cybozu_proxy() {
+  # 自動プロキシ設定の取得
+  proxy_auto_config_url=$(scutil --proxy | \
+    grep ProxyAutoConfigURLString | \
+    awk -F " : " '{ print $2 }')
+
+  # 設定が存在しない場合はスキップ
+  if [[ -z ${proxy_auto_config_url} ]]
+  then
+    echo "Skip proxy auto configuration." 1>&2
+    return
+  fi
+
+  # 自動プロキシ設定本体からプロキシのホスト名とポート番号のペアを取得
+  proxy_host=$(curl --silent "${proxy_auto_config_url}" | \
+    grep "PROXY" | \
+    perl -pe 's/\s*return "PROXY (.*)";/$1/')
+
+  # 各種環境変数にプロキシ情報を設定
+  export http_proxy="http://${proxy_host}/"
+  export https_proxy="${http_proxy}"
+  export HTTP_PROXY="${http_proxy}"
+  export HTTPS_PROXY="${https_proxy}"
+
+  # ローカルのアドレスに対してはプロキシを利用しない
+  export no_proxy="127.0.0.1,::1,localhost,localhost.localdomain,255.255.255.255,broadcasthost"
+  export NO_PROXY="${no_proxy}"
+}
