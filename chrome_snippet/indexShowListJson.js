@@ -1,0 +1,1 @@
+kintone.api('/k/api/app/413/record/list', 'POST', {'hasAccessedKintone':true}).then(resp => console.log(resp))
